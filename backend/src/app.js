@@ -6,7 +6,6 @@ const { Server } = require('socket.io');
 const mongoose = require('mongoose');
 const { startScraper } = require('./scraper/mikrotik.scraper');
 const statsRoutes = require('./routes/stats.routes');
-const speedtestRoutes = require('./routes/speedtest.routes');
 
 
 
@@ -23,7 +22,6 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 app.use('/api/stats', statsRoutes);
-app.use('/api/speedtest', speedtestRoutes);
 
 // Connexion MongoDB
 mongoose.connect(process.env.MONGO_URI, { family: 4 })
